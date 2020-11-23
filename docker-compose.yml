@@ -9,6 +9,13 @@ services:
       context: ./nginx
     ports:
       - 80:80
+  client:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./client
+    volumes:
+      - ./app/node_modules
+      - ./client:/app
   node:
     build:
       dockerfile: Dockerfile.dev
@@ -16,5 +23,3 @@ services:
     volumes:
       - ./app/node_modules
       - ./node:/app
-    ports:
-      - 5000:5000
