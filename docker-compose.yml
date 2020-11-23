@@ -3,8 +3,18 @@ services:
   mongo:
     image: mongo
   nginx:
+    restart: always
     build:
       dockerfile: Dockerfile.dev
       context: ./nginx
     ports:
       - 80:80
+  node:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./node
+    volumes:
+      - ./app/node_modules
+      - ./node:/app
+    ports:
+      - 5000:5000
