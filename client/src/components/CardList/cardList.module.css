@@ -1,0 +1,5 @@
+.cardList {
+  display: flex;
+  flex-flow: column;
+  padding: 10px;
+}
