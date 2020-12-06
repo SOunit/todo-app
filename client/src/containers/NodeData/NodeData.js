@@ -38,7 +38,7 @@ class NodeData extends Component {
 
     return (
       <div>
-        <h1>React!?</h1>
+        <h1>React!!!!</h1>
         <p>{name}</p>
         <p>{mongo_name}</p>
       </div>
