@@ -1,5 +1,5 @@
 import React from 'react';
-import Card from './Card/card';
+import Card from './Card/Card';
 import classes from './cardList.module.css';
 
 const cardList = () => {

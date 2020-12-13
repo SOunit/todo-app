@@ -1,10 +1,14 @@
 import React from 'react';
-import classes from './header.module.css';
+import { NavLink } from 'react-router-dom';
+
+import classes from './Header.module.css';
 
 const header = () => {
   return (
     <header className={classes.header}>
-      <h1>Todo App</h1>
+      <h1>
+        <NavLink to="/">Todo App</NavLink>
+      </h1>
       <nav>
         <ul className={classes.headerItems}>
           <li></li>
