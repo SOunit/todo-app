@@ -1,13 +1,19 @@
+import { Route, Switch } from 'react-router-dom';
+
 import './App.css';
-import Header from './components/Header/header';
-import Footer from './components/Footer/footer';
-import CardList from './components/CardList/cardList';
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
+import List from './containers/List/List';
+import Add from './containers/Add/Add';
 
 function App() {
   return (
     <div>
       <Header />
-      <CardList />
+      <Switch>
+        <Route path="/add" exact component={Add} />
+        <Route path="/" exact component={List} />
+      </Switch>
       <Footer />
     </div>
   );
