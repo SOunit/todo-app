@@ -9,7 +9,6 @@ class Create extends Component {
   };
 
   componentDidMount() {
-    console.log('create test');
     this.setState({ todo: this.props.todo });
   }
 
