@@ -4,9 +4,9 @@ import classes from './Card.module.css';
 const card = (props) => {
   return (
     <div className={classes.card}>
-      <h2>Title</h2>
-      <div>{new Date().toISOString()}</div>
-      <div>Added by Who</div>
+      <h2>{props.title}</h2>
+      <div>{props.createdAt}</div>
+      <div>Added by {props.user}</div>
     </div>
   );
 };

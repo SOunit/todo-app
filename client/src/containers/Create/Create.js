@@ -1,10 +1,17 @@
 import React, { Component } from 'react';
 import classes from './Create.module.css';
+import { connect } from 'react-redux';
 
 class Create extends Component {
   state = {
     todoText: '',
+    todo: null,
   };
+
+  componentDidMount() {
+    console.log('create test');
+    this.setState({ todo: this.props.todo });
+  }
 
   OnTodoInput(e) {
     const inputText = e.target.value;
@@ -24,4 +31,10 @@ class Create extends Component {
   }
 }
 
-export default Create;
+const mapStateToProps = (state) => {
+  return {
+    todo: state.todo,
+  };
+};
+
+export default connect(mapStateToProps)(Create);
