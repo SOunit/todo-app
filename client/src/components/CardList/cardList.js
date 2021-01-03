@@ -1,6 +1,6 @@
 import React from 'react';
 import Card from './Card/Card';
-import classes from './cardList.module.css';
+import classes from './CardList.module.css';
 
 const cardList = () => {
   return (
