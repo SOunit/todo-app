@@ -7,7 +7,6 @@ const cardList = (props) => {
 
   if (props.todoList) {
     cardList = props.todoList.map((todo) => {
-      console.log(todo);
       return (
         <Card
           title={todo.title}

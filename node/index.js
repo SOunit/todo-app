@@ -19,4 +19,27 @@ app.get('/mongo/name', (req, res, next) => {
   });
 });
 
+app.get('/mongo/todoList', (req, res, next) => {
+  res.send([
+    {
+      _id: 'a',
+      title: 'test mongo title',
+      createdAt: 'test yyyy mm dd',
+      user: 'test mongo user',
+    },
+    {
+      _id: 'b',
+      title: 'test mongo title',
+      createdAt: 'test yyyy mm dd',
+      user: 'test mongo user',
+    },
+    {
+      _id: 'c',
+      title: 'test mongo title',
+      createdAt: 'test yyyy mm dd',
+      user: 'test mongo user',
+    },
+  ]);
+});
+
 app.listen(5000);

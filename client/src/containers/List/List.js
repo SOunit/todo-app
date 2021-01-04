@@ -1,19 +1,15 @@
 import React, { Component } from 'react';
 import CardList from '../../components/CardList/CardList';
 import { connect } from 'react-redux';
+import * as actions from '../../store/actions/index';
 
 class List extends Component {
-  state = {
-    todoList: null,
-  };
-
   componentDidMount() {
-    console.log(this.props.todoList);
-    this.setState({ todoList: this.props.todoList });
+    this.props.onInitTodoList();
   }
 
   render() {
-    return <CardList todoList={this.state.todoList} />;
+    return <CardList todoList={this.props.todoList} />;
   }
 }
 
@@ -23,4 +19,12 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(List);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onInitTodoList: () => {
+      dispatch(actions.initTodoList());
+    },
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(List);
