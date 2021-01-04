@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb:mongo/todos', {
+mongoose.connect('mongodb://mongo/todos', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -19,6 +19,6 @@ const TodoSchema = new Schema({
   user: String,
 });
 
-const Todo = mongo.model('todo', TodoSchema);
+const Todo = mongoose.model('todo', TodoSchema);
 
 module.exports = Todo;
