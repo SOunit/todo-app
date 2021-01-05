@@ -1,1 +1,1 @@
-export { initTodoList } from './todo';
+export { initTodoList, createTodo } from './todo';

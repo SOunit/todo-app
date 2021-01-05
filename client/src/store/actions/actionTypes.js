@@ -1,2 +1,3 @@
 export const SET_TODO_LIST = 'SET_TODO_LIST';
 export const FETCH_TODO_FAILED = 'FETCH_TODO_FAILED';
+export const CREATE_TODO = 'CREATE_TODO';

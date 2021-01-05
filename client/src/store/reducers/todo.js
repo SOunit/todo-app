@@ -23,6 +23,12 @@ const initialState = {
   ],
 };
 
+const addTodo = (state, action) => {
+  console.log(state);
+  console.log(action.todo);
+  return { todo: state.todoList };
+};
+
 const setTodoList = (state, action) => {
   return { todo: action.todoList };
 };
@@ -31,6 +37,8 @@ const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.SET_TODO_LIST:
       return setTodoList(state, action);
+    case actionTypes.CREATE_TODO:
+      return addTodo(state, action);
     default:
       return state;
   }

@@ -1,6 +1,22 @@
 import axios from 'axios';
 import * as actionTypes from './actionTypes';
 
+export const createTodo = (todoText) => {
+  return (dispatch) => {
+    axios
+      .post('/node/mongo/todo', { todoText: todoText })
+      .then((response) => {
+        console.log(response);
+        return {
+          type: actionTypes.CREATE_TODO,
+        };
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+};
+
 export const setTodoList = (todoList) => {
   return {
     type: actionTypes.SET_TODO_LIST,
