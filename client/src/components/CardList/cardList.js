@@ -13,6 +13,9 @@ const cardList = (props) => {
           createdAt={todo.createdAt}
           user={todo.user}
           key={todo._id}
+          cardClicked={props.cardClicked}
+          id={todo._id}
+          isActive={todo.isActive}
         />
       );
     });

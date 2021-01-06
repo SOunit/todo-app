@@ -46,6 +46,14 @@ export const setTodoMasterList = (todoList) => {
   };
 };
 
+export const onCardClicked = (id) => {
+  console.log('action, id', id);
+  return {
+    type: actionTypes.ON_CARD_CLICKED,
+    id: id,
+  };
+};
+
 export const fetchTodoFailed = () => {
   return {
     type: actionTypes.FETCH_TODO_FAILED,

@@ -10,3 +10,7 @@
   margin: 0;
   font-weight: 400;
 }
+
+.active {
+  background-color: rgb(255, 255, 214);
+}

@@ -12,7 +12,12 @@ class Add extends Component {
     let todos = null;
 
     if (this.props.todoMasterList) {
-      todos = <CardList todoList={this.props.todoMasterList} />;
+      todos = (
+        <CardList
+          todoList={this.props.todoMasterList}
+          cardClicked={this.props.onCardClicked}
+        />
+      );
     }
     return (
       <div>
@@ -35,7 +40,10 @@ const mapDispathToProps = (dispatch) => {
       dispatch(actions.initTodoMasterList());
     },
     onAdd: () => {
-      dispatch(() => actions.addTodo());
+      dispatch(actions.addTodo());
+    },
+    onCardClicked: (id) => {
+      dispatch(actions.onCardClicked(id));
     },
   };
 };
