@@ -1,26 +1,14 @@
 import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
-  todo: [
-    {
-      _id: 'a',
-      title: 'test title',
-      createdAt: '2020/10/10 10:00',
-      user: 'test user',
-    },
-    {
-      _id: 'b',
-      title: 'test title',
-      createdAt: '2020/10/10 10:00',
-      user: 'test user',
-    },
-    {
-      _id: 'c',
-      title: 'test title',
-      createdAt: '2020/10/10 10:00',
-      user: 'test user',
-    },
-  ],
+  todo: [],
+  todoMasterList: [],
+};
+
+const createTodoMaster = (state, action) => {
+  console.log(state);
+  console.log(action.todo);
+  return { todoMasterList: state.todoList };
 };
 
 const addTodo = (state, action) => {
@@ -33,11 +21,22 @@ const setTodoList = (state, action) => {
   return { todo: action.todoList };
 };
 
+const setTodoMasterList = (state, action) => {
+  let todoMasterList = action.todoList.map((todo) => {
+    return { ...todo, isActive: false };
+  });
+  return { todoMasterList: todoMasterList };
+};
+
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.SET_TODO_LIST:
       return setTodoList(state, action);
-    case actionTypes.CREATE_TODO:
+    case actionTypes.CREATE_TODO_MASTER:
+      return createTodoMaster(state, action);
+    case actionTypes.SET_TODO_MASTER_LIST:
+      return setTodoMasterList(state, action);
+    case actionTypes.ADD_TODO:
       return addTodo(state, action);
     default:
       return state;

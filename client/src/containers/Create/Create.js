@@ -15,7 +15,7 @@ class Create extends Component {
 
   onCreate() {
     this.props.onCreateTodo(this.state.todoText);
-    this.props.history.push('/');
+    this.props.history.push('/add');
   }
 
   render() {
