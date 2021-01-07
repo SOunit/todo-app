@@ -12,8 +12,8 @@ function App() {
     <div>
       <Header />
       <Switch>
-        <Route path='/Create' exact component={Create} />
-        <Route path='/add' exact component={Add} />
+        <Route path='/Create' component={Create} />
+        <Route path='/add' component={Add} />
         <Route path='/' exact component={List} />
       </Switch>
       <Footer />
