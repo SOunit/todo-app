@@ -1,10 +1,10 @@
 import axios from 'axios';
 import * as actionTypes from './actionTypes';
 
-export const addTodo = (todo) => {
+export const addTodo = (todoMasterList) => {
   return (dispatch) => {
     axios
-      .post('/node/mongo/todo', { todo: todo })
+      .post('/node/mongo/todo', { todoList: todoMasterList })
       .then((response) => {
         return {
           type: actionTypes.ADD_TODO,
@@ -47,7 +47,6 @@ export const setTodoMasterList = (todoList) => {
 };
 
 export const onCardClicked = (id) => {
-  console.log('action, id', id);
   return {
     type: actionTypes.ON_CARD_CLICKED,
     id: id,

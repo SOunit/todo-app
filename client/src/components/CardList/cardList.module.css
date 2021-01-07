@@ -2,4 +2,5 @@
   display: flex;
   flex-flow: column;
   padding: 10px;
+  margin-bottom: 120px;
 }
