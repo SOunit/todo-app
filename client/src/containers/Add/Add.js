@@ -24,7 +24,7 @@ class Add extends Component {
       todos = (
         <CardList
           todoList={this.props.todoMasterList}
-          cardClicked={this.props.onCardClicked}
+          cardClicked={this.props.onMasterCardClicked}
         />
       );
     }
@@ -43,7 +43,7 @@ class Add extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    todoMasterList: state.todoMasterList,
+    todoMasterList: state.todoMasterList.todoMasterList,
   };
 };
 
@@ -55,8 +55,8 @@ const mapDispathToProps = (dispatch) => {
     onAdd: (todoMasterList) => {
       dispatch(actions.addTodo(todoMasterList));
     },
-    onCardClicked: (id) => {
-      dispatch(actions.onCardClicked(id));
+    onMasterCardClicked: (id) => {
+      dispatch(actions.onMasterCardClicked(id));
     },
   };
 };

@@ -1,59 +1,41 @@
 import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
-  todo: [],
-  todoMasterList: [],
-};
-
-const createTodoMaster = (state, action) => {
-  console.log(state);
-  console.log(action.todo);
-  return { todoMasterList: state.todoList };
+  todoList: [],
 };
 
 const addTodo = (state, action) => {
   console.log(state);
   console.log(action.todo);
-  return { todo: state.todoList };
+  return { todoList: state.todoList };
 };
 
 const setTodoList = (state, action) => {
-  return { todo: action.todoList };
-};
-
-const setTodoMasterList = (state, action) => {
-  let todoMasterList = action.todoList.map((todo) => {
-    return { ...todo, isActive: false };
-  });
-  return { todoMasterList: todoMasterList };
+  return { todoList: action.todoList };
 };
 
 const onCardClicked = (state, action) => {
   // get index of todo to update
-  const newTodoMasterIndex = state.todoMasterList.findIndex((todoMaster) => {
-    return todoMaster._id === action.id;
+  const newTodoIndex = state.todoList.findIndex((todo) => {
+    return todo._id === action.id;
   });
 
   // create new todo
-  const newTodoMaster = { ...state.todoMasterList[newTodoMasterIndex] };
-  newTodoMaster.isActive = !newTodoMaster.isActive;
+  const newTodo = { ...state.todoList[newTodoIndex] };
+  newTodo.isActive = !newTodo.isActive;
 
   // create new todo list
-  const newTodoMasterList = [...state.todoMasterList];
-  newTodoMasterList[newTodoMasterIndex] = newTodoMaster;
+  const newTodoList = [...state.todoList];
+  newTodoList[newTodoIndex] = newTodo;
 
   // update todo list
-  return { todoMasterList: newTodoMasterList };
+  return { todoList: newTodoList };
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.SET_TODO_LIST:
       return setTodoList(state, action);
-    case actionTypes.CREATE_TODO_MASTER:
-      return createTodoMaster(state, action);
-    case actionTypes.SET_TODO_MASTER_LIST:
-      return setTodoMasterList(state, action);
     case actionTypes.ADD_TODO:
       return addTodo(state, action);
     case actionTypes.ON_CARD_CLICKED:

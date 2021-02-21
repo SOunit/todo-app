@@ -5,17 +5,17 @@ import * as actions from '../../store/actions/index';
 
 class Create extends Component {
   state = {
-    todoText: '',
+    todoMasterText: '',
   };
 
   OnTodoInput(e) {
     const inputText = e.target.value;
-    this.setState({ todoText: inputText });
+    this.setState({ todoMasterText: inputText });
   }
 
   onCreate() {
-    this.props.onCreateTodo(this.state.todoText);
-    this.setState({ todoText: '' });
+    this.props.onCreateTodoMaster(this.state.todoMasterText);
+    this.setState({ todoMasterText: '' });
   }
 
   render() {
@@ -23,10 +23,12 @@ class Create extends Component {
       <div className={classes.Create}>
         <h2>Create Todo</h2>
         <input
-          value={this.state.todoText}
+          value={this.state.todoMasterText}
           onChange={(e) => this.OnTodoInput(e)}
         ></input>
-        <button onClick={(todoText) => this.onCreate(todoText)}>Create</button>
+        <button onClick={(todoMasterText) => this.onCreate(todoMasterText)}>
+          Create
+        </button>
       </div>
     );
   }
@@ -34,7 +36,8 @@ class Create extends Component {
 
 const mapDispathToProps = (dispatch) => {
   return {
-    onCreateTodo: (todoText) => dispatch(actions.createTodo(todoText)),
+    onCreateTodoMaster: (todoMasterText) =>
+      dispatch(actions.createTodoMaster(todoMasterText)),
   };
 };
 
