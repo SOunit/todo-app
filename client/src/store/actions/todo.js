@@ -2,6 +2,7 @@ import axios from 'axios';
 import * as actionTypes from './actionTypes';
 
 export const addTodo = (todoMasterList) => {
+  console.log(todoMasterList);
   return (dispatch) => {
     axios
       .post('/node/mongo/todo', { todoList: todoMasterList })
@@ -16,7 +17,23 @@ export const addTodo = (todoMasterList) => {
   };
 };
 
-export const createTodo = (todoText) => {
+export const onComplete = (todoList) => {
+  console.log(todoList);
+  return {
+    type: actionTypes.ON_COMPLETE,
+    todoList: todoList,
+  };
+};
+
+export const onInitCompleteList = () => {
+  const completeList = [{ title: 'compete test', user: 'test user' }];
+  return {
+    type: actionTypes.ON_INIT_COMPLETE_LIST,
+    completeList: completeList,
+  };
+};
+
+export const createTodoMaster = (todoText) => {
   return (dispatch) => {
     axios
       .post('/node/mongo/todo_master', { todoText: todoText })
@@ -49,6 +66,13 @@ export const setTodoMasterList = (todoList) => {
 export const onCardClicked = (id) => {
   return {
     type: actionTypes.ON_CARD_CLICKED,
+    id: id,
+  };
+};
+
+export const onMasterCardClicked = (id) => {
+  return {
+    type: actionTypes.ON_MSTER_CARD_CLICKED,
     id: id,
   };
 };

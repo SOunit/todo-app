@@ -5,13 +5,19 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { createStore, compose, applyMiddleware } from 'redux';
-import reducer from './store/reducers/todo';
+import { createStore, compose, applyMiddleware, combineReducers } from 'redux';
+import todoListReducer from './store/reducers/todo';
+import todoMasterListReducer from './store/reducers/todoMaster';
+import completeListReducer from './store/reducers/complete';
 import thunk from 'redux-thunk';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const rootReducer = reducer;
+const rootReducer = combineReducers({
+  todoList: todoListReducer,
+  todoMasterList: todoMasterListReducer,
+  completeList: completeListReducer,
+});
 const store = createStore(
   rootReducer,
   composeEnhancers(applyMiddleware(thunk))

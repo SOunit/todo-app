@@ -1,7 +1,10 @@
 export {
   initTodoList,
   initTodoMasterList,
-  createTodo,
+  createTodoMaster,
   addTodo,
   onCardClicked,
+  onMasterCardClicked,
+  onComplete,
+  onInitCompleteList,
 } from './todo';
