@@ -5,6 +5,7 @@
   padding: 10px;
   color: #585858;
   box-sizing: border-box;
+  user-select: none;
 }
 
 .card h2 {
