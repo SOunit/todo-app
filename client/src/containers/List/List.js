@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import CardList from '../../components/CardList/CardList';
 import { connect } from 'react-redux';
 import * as actions from '../../store/actions/index';
 import classes from './List.module.css';
+import CardList from '../../components/CardList/CardList';
+import ControllButtons from '../../components/ControlButtons/ControlButtons';
 
 class List extends Component {
   componentDidMount() {
@@ -32,14 +33,12 @@ class List extends Component {
     return (
       <div>
         {todoList}
-        <div className={classes.buttonBox}>
-          <button
-            className={classes.addButton}
-            onClick={() => this.onComplete()}
-          >
-            Complete
-          </button>
-        </div>
+        <ControllButtons
+          buttons={[
+            { buttonText: 'Complete', onClick: () => this.onComplete() },
+            { buttonText: 'Remove', onClick: () => this.onComplete() },
+          ]}
+        />
       </div>
     );
   }
