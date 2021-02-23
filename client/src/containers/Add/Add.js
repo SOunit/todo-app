@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import * as actions from '../../store/actions/index';
 import CardList from '../../components/CardList/CardList';
 import classes from './Add.module.css';
+import ControllButtons from '../../components/ControlButtons/ControlButtons';
 
 class Add extends Component {
   componentDidMount() {
@@ -31,11 +32,12 @@ class Add extends Component {
     return (
       <div>
         {todos}
-        <div className={classes.buttonBox}>
-          <button className={classes.addButton} onClick={() => this.onAdd()}>
-            Add
-          </button>
-        </div>
+        <ControllButtons
+          buttons={[
+            { buttonText: 'Add', onClick: () => this.onAdd() },
+            { buttonText: 'Add', onClick: () => this.onAdd() },
+          ]}
+        />
       </div>
     );
   }
