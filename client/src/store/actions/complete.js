@@ -1,7 +1,7 @@
 import axios from 'axios';
 import * as actionTypes from './actionTypes';
 
-export const onComplete = (todoList) => {
+export const addComplete = (todoList) => {
   console.log(todoList);
   return (dispatch) => {
     axios
@@ -14,10 +14,6 @@ export const onComplete = (todoList) => {
       .catch((err) => {
         console.log(err);
       });
-  };
-  return {
-    type: actionTypes.ON_COMPLETE,
-    todoList: todoList,
   };
 };
 

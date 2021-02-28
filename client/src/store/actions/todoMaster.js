@@ -9,7 +9,7 @@ export const initTodoMasterList = () => {
         dispatch(setTodoMasterList(response.data));
       })
       .catch((err) => {
-        dispatch(fetchTodoFailed());
+        dispatch(fetchTodoMasterFailed());
       });
   };
 };
@@ -34,6 +34,12 @@ export const setTodoMasterList = (todoList) => {
   return {
     type: actionTypes.SET_TODO_MASTER_LIST,
     todoList: todoList,
+  };
+};
+
+export const fetchTodoMasterFailed = () => {
+  return {
+    type: actionTypes.FETCH_TODO_MASTER_FAILED,
   };
 };
 
