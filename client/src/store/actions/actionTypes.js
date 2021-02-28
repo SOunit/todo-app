@@ -3,6 +3,7 @@ export const SET_TODO_LIST = 'SET_TODO_LIST';
 export const FETCH_TODO_FAILED = 'FETCH_TODO_FAILED';
 export const ADD_TODO = 'ADD_TODO';
 export const ON_CARD_CLICKED = 'ON_CARD_CLICKED';
+export const REMOVE_TODO = 'REMOVE_TODO';
 
 // master
 export const SET_TODO_MASTER_LIST = 'SET_TODO_MASTER_LIST';

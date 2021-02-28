@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../store/actions/index';
-import classes from './List.module.css';
 import CardList from '../../components/CardList/CardList';
 import ControllButtons from '../../components/ControlButtons/ControlButtons';
 
@@ -59,6 +58,7 @@ const mapDispatchToProps = (dispatch) => {
     },
     onComplete: (todoList) => {
       dispatch(actions.addComplete(todoList));
+      dispatch(actions.removeTodo(todoList));
     },
   };
 };

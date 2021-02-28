@@ -32,6 +32,18 @@ app.post('/mongo/todo', (req, res, next) => {
   next();
 });
 
+app.post('/mongo/delete/todoList', (req, res, next) => {
+  let idList = [];
+  req.body.todoList.forEach((todo) => {
+    idList.push(mongoose.Types.ObjectId(todo._id));
+  });
+  Todo.find({ _id: { $in: idList } })
+    .remove()
+    .then(() => {
+      res.send('delete ok');
+    });
+});
+
 // =========================
 // master
 // =========================
@@ -67,6 +79,7 @@ app.post('/mongo/complete', (req, res, next) => {
   });
 
   // FIXME: exec multiple query and return one result
+  // to avoid console error, node should return something by res.send();
   next();
 });
 
