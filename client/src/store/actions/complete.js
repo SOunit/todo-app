@@ -15,10 +15,6 @@ export const addComplete = (todoList) => {
         console.log(err);
       });
   };
-  return {
-    type: actionTypes.ON_COMPLETE,
-    todoList: todoList,
-  };
 };
 
 export const onInitCompleteList = () => {

@@ -58,7 +58,7 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(actions.onCardClicked(id));
     },
     onComplete: (todoList) => {
-      dispatch(actions.onComplete(todoList));
+      dispatch(actions.addComplete(todoList));
     },
   };
 };
