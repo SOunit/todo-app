@@ -24,7 +24,7 @@ export const onComplete = (todoList) => {
 export const onInitCompleteList = () => {
   return (dispatch) => {
     axios
-      .get('/node/mongo/todoList')
+      .get('/node/mongo/complete')
       .then((response) => {
         dispatch(setCompleteList(response.data));
       })

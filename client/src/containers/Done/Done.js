@@ -56,10 +56,6 @@ const mapDispatchToProps = (dispatch) => {
     onCardClicked: (id) => {
       dispatch(actions.onCardClicked(id));
     },
-    onComplete: (todoList) => {
-      dispatch(actions.onComplete(todoList));
-      dispatch(actions.onComplete(todoList));
-    },
   };
 };
 
