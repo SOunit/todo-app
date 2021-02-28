@@ -1,10 +1,9 @@
+export { initTodoList, addTodo, onCardClicked } from './todo';
+
 export {
-  initTodoList,
   initTodoMasterList,
   createTodoMaster,
-  addTodo,
-  onCardClicked,
   onMasterCardClicked,
-  onComplete,
-  onInitCompleteList,
-} from './todo';
+} from './todoMaster';
+
+export { onComplete, onInitCompleteList } from './complete';
