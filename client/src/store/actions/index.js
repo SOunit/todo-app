@@ -6,4 +6,4 @@ export {
   onMasterCardClicked,
 } from './todoMaster';
 
-export { onComplete, onInitCompleteList } from './complete';
+export { addComplete, onInitCompleteList } from './complete';

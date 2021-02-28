@@ -5,7 +5,7 @@ const initialState = {
 };
 
 // fixme: addComplete
-const onComplete = (state, action) => {
+const addComplete = (state, action) => {
   console.log(state);
   console.log(action.todoList);
   return { completeList: action.todoList };
@@ -21,8 +21,8 @@ const setCompleteList = (state, action) => {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.ON_COMPLETE:
-      return onComplete(state, action);
+    case actionTypes.ADD_COMPLETE:
+      return addComplete(state, action);
     case actionTypes.ON_INIT_COMPLETE_LIST:
       return onInitCompleteList(state, action);
     case actionTypes.SET_COMPLETE_LIST:
