@@ -1,4 +1,4 @@
-export { initTodoList, addTodo, onCardClicked, onComplete } from './todo';
+export { initTodoList, addTodo, onCardClicked } from './todo';
 
 export {
   initTodoMasterList,
@@ -6,4 +6,4 @@ export {
   onMasterCardClicked,
 } from './todoMaster';
 
-export { onInitCompleteList } from './complete';
+export { onComplete, onInitCompleteList } from './complete';

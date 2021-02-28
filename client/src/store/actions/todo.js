@@ -1,6 +1,22 @@
 import axios from 'axios';
 import * as actionTypes from './actionTypes';
 
+export const addTodo = (todoMasterList) => {
+  console.log(todoMasterList);
+  return (dispatch) => {
+    axios
+      .post('/node/mongo/todo', { todoList: todoMasterList })
+      .then((response) => {
+        return {
+          type: actionTypes.ADD_TODO,
+        };
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+};
+
 export const initTodoList = () => {
   return (dispatch) => {
     axios
@@ -31,29 +47,5 @@ export const onCardClicked = (id) => {
   return {
     type: actionTypes.ON_CARD_CLICKED,
     id: id,
-  };
-};
-
-export const addTodo = (todoMasterList) => {
-  console.log(todoMasterList);
-  return (dispatch) => {
-    axios
-      .post('/node/mongo/todo', { todoList: todoMasterList })
-      .then((response) => {
-        return {
-          type: actionTypes.ADD_TODO,
-        };
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-};
-
-export const onComplete = (todoList) => {
-  console.log(todoList);
-  return {
-    type: actionTypes.ON_COMPLETE,
-    todoList: todoList,
   };
 };

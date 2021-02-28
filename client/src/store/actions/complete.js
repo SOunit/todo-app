@@ -1,6 +1,26 @@
 import axios from 'axios';
 import * as actionTypes from './actionTypes';
 
+export const onComplete = (todoList) => {
+  console.log(todoList);
+  return (dispatch) => {
+    axios
+      .post('/node/mongo/complete', { completeList: todoList })
+      .then((response) => {
+        return {
+          type: actionTypes.ADD_COMPLETE,
+        };
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  return {
+    type: actionTypes.ON_COMPLETE,
+    todoList: todoList,
+  };
+};
+
 export const onInitCompleteList = () => {
   return (dispatch) => {
     axios
@@ -26,7 +46,7 @@ export const setCompleteList = (completeList) => {
   };
 };
 
-export const fetchCompleteList = () => {
+export const fetchCompleteFailed = () => {
   return {
     type: actionTypes.FETCH_COMPLETE_FAILED,
   };

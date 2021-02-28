@@ -4,6 +4,7 @@ const initialState = {
   completeList: null,
 };
 
+// fixme: addComplete
 const onComplete = (state, action) => {
   console.log(state);
   console.log(action.todoList);
