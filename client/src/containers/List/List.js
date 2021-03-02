@@ -16,6 +16,22 @@ class List extends Component {
     this.props.onComplete(newTodoList);
   }
 
+  onRemove() {
+    const todoListToRemove = this.props.todoList.filter((todo) => {
+      return todo.isActive === true;
+    });
+
+    if (todoListToRemove.length === 0) {
+      window.alert('select 1 or more todos!');
+      return;
+    }
+
+    const isRemove = window.confirm('are you sure?');
+    if (isRemove) {
+      this.props.onRemove(todoListToRemove);
+    }
+  }
+
   render() {
     let todoList = null;
 
@@ -34,7 +50,7 @@ class List extends Component {
         <ControllButtons
           buttons={[
             { buttonText: 'Complete', onClick: () => this.onComplete() },
-            { buttonText: 'Remove', onClick: () => this.onComplete() },
+            { buttonText: 'Remove', onClick: () => this.onRemove() },
           ]}
         />
       </div>
@@ -58,6 +74,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     onComplete: (todoList) => {
       dispatch(actions.addComplete(todoList));
+      dispatch(actions.removeTodo(todoList));
+    },
+    onRemove: (todoList) => {
       dispatch(actions.removeTodo(todoList));
     },
   };
