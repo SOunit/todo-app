@@ -61,6 +61,18 @@ app.post('/mongo/todo_master', (req, res, next) => {
   );
 });
 
+app.post('/mongo/delete/todoMasterList', (req, res, next) => {
+  let idList = [];
+  req.body.todoMasterList.forEach((todo) => {
+    idList.push(mongoose.Types.ObjectId(todo._id));
+  });
+  TodoMaster.find({ _id: { $in: idList } })
+    .remove()
+    .then(() => {
+      res.send('delete ok');
+    });
+});
+
 // =========================
 // complete
 // =========================

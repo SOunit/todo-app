@@ -49,3 +49,18 @@ export const onMasterCardClicked = (id) => {
     id: id,
   };
 };
+
+export const removeTodoMaster = (todoMasterList) => {
+  return (dispatch) => {
+    axios
+      .post('/node/mongo/delete/todoMasterList', {
+        todoMasterList: todoMasterList,
+      })
+      .then((response) => {
+        dispatch(initTodoMasterList());
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+};

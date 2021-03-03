@@ -4,6 +4,7 @@ export {
   initTodoMasterList,
   createTodoMaster,
   onMasterCardClicked,
+  removeTodoMaster,
 } from './todoMaster';
 
 export { addComplete, onInitCompleteList } from './complete';
