@@ -18,6 +18,24 @@ class Add extends Component {
     this.props.history.push('/');
   }
 
+  onRemove() {
+    const todoMasterListToRemove = this.props.todoMasterList.filter(
+      (todoMaster) => {
+        return todoMaster.isActive === true;
+      }
+    );
+
+    if (todoMasterListToRemove.length === 0) {
+      window.alert('select 1 or more todos!');
+      return;
+    }
+
+    const isRemove = window.confirm('are you sure?');
+    if (isRemove) {
+      this.props.onRemove(todoMasterListToRemove);
+    }
+  }
+
   render() {
     let todos = null;
 
@@ -35,7 +53,7 @@ class Add extends Component {
         <ControllButtons
           buttons={[
             { buttonText: 'Add', onClick: () => this.onAdd() },
-            { buttonText: 'Add', onClick: () => this.onAdd() },
+            { buttonText: 'Remove', onClick: () => this.onRemove() },
           ]}
         />
       </div>
@@ -59,6 +77,9 @@ const mapDispathToProps = (dispatch) => {
     },
     onMasterCardClicked: (id) => {
       dispatch(actions.onMasterCardClicked(id));
+    },
+    onRemove: (todoMasterList) => {
+      dispatch(actions.removeTodoMaster(todoMasterList));
     },
   };
 };
