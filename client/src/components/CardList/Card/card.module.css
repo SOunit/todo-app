@@ -1,8 +1,5 @@
 .card {
-<<<<<<< HEAD
-=======
   position: relative;
->>>>>>> develop
   box-shadow: 1px 1px 1px 1px #666;
   text-align: center;
   margin-bottom: 10px;
@@ -21,12 +18,9 @@
   background-color: rgb(255, 255, 214);
   border: 3px solid rgb(255, 162, 86);
 }
-<<<<<<< HEAD
-=======
 
 .num_box {
   position: absolute;
   top: 12px;
   left: 12px;
 }
->>>>>>> develop
