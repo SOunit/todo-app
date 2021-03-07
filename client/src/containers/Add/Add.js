@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../store/actions/index';
 import CardList from '../../components/CardList/CardList';
-import classes from './Add.module.css';
 import ControllButtons from '../../components/ControlButtons/ControlButtons';
 
 class Add extends Component {

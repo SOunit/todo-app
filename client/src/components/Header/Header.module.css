@@ -1,0 +1,17 @@
+.header {
+  background-color: gray;
+}
+
+.header h1 {
+  margin: 0;
+  padding: 10px;
+}
+
+.header h1 a {
+  color: #656565;
+  text-decoration: none;
+}
+
+.headerItems {
+  list-style: none;
+}

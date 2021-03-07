@@ -6,7 +6,8 @@ const cardList = (props) => {
   let cardList = null;
 
   if (props.todoList) {
-    cardList = props.todoList.map((todo) => {
+    cardList = props.todoList.map((todo, index) => {
+      const dispIndex = index + 1;
       return (
         <Card
           title={todo.title}
@@ -16,6 +17,7 @@ const cardList = (props) => {
           cardClicked={props.cardClicked}
           id={todo._id}
           isActive={todo.isActive}
+          index={dispIndex}
         />
       );
     });

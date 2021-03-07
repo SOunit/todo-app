@@ -11,9 +11,18 @@ const card = (props) => {
 
   return (
     <div className={classNames} onClick={() => props.cardClicked(props.id)}>
+<<<<<<< HEAD
       <h2>{props.title}</h2>
       <div>{props.createdAt}</div>
       <div>Added by {props.user}</div>
+=======
+      <div className={classes.num_box}>{props.index}</div>
+      <div>
+        <h2>{props.title}</h2>
+        <div>{props.createdAt}</div>
+        <div>Added by {props.user}</div>
+      </div>
+>>>>>>> develop
     </div>
   );
 };
