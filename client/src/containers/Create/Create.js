@@ -14,8 +14,12 @@ class Create extends Component {
   }
 
   onCreate() {
-    this.props.onCreateTodoMaster(this.state.todoMasterText);
-    this.setState({ todoMasterText: '' });
+    if (this.state.todoMasterText) {
+      this.props.onCreateTodoMaster(this.state.todoMasterText);
+      this.setState({ todoMasterText: '' });
+    } else {
+      console.log('input is empty');
+    }
   }
 
   render() {
@@ -23,12 +27,18 @@ class Create extends Component {
       <div className={classes.Create}>
         <h2>Create Todo</h2>
         <input
+          className={classes.Input}
           value={this.state.todoMasterText}
           onChange={(e) => this.OnTodoInput(e)}
         ></input>
-        <button onClick={(todoMasterText) => this.onCreate(todoMasterText)}>
-          Create
-        </button>
+        <div>
+          <button
+            className={classes.Button}
+            onClick={(todoMasterText) => this.onCreate(todoMasterText)}
+          >
+            Create
+          </button>
+        </div>
       </div>
     );
   }
