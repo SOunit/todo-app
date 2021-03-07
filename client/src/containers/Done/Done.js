@@ -13,8 +13,6 @@ class Done extends Component {
   render() {
     let todoList = null;
 
-    console.log(this.props.completeList);
-
     if (this.props.completeList) {
       todoList = (
         <CardList
