@@ -1,0 +1,19 @@
+.card {
+  box-shadow: 1px 1px 1px 1px #666;
+  text-align: center;
+  margin-bottom: 10px;
+  padding: 10px;
+  color: #585858;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+.card h2 {
+  margin: 0;
+  font-weight: 400;
+}
+
+.active {
+  background-color: rgb(255, 255, 214);
+  border: 3px solid rgb(255, 162, 86);
+}
